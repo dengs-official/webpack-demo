@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server"
+  },
   "devDependencies": {
+    "html-webpack-plugin": "^4.4.1",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   }
 }
