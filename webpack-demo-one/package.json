@@ -2,5 +2,9 @@
   "name": "webpack-demo-one",
   "version": "1.0.0",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
 }
