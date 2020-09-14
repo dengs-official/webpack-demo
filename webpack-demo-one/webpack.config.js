@@ -8,7 +8,7 @@ const OptimizeCssPlugin = require('optimize-css-assets-webpack-plugin');
 const r = (p) => path.resolve(__dirname, p);
 
 module.exports = {
-  mode: 'production', // 模式，production, development
+  mode: 'development', // 模式，production, development
   entry: './src/index.js', // 入口
   output: { // 出口
     filename: 'boundle.[hash].js', //文件名
@@ -36,10 +36,19 @@ module.exports = {
   module: {
     rules: [
       {
+        // 处理脚本, .js, .jsx
+        test: /\.js(|x)$/,
+        use: [
+          {
+            loader: 'babel-loader', // 编译es6等更高语法，配置文件babale.config.js
+          }
+        ]
+      },
+      {
         // 处理样式 .css, .less
         // style-loader, 处理插入css到html
         // css-loader，处理css引入, @import
-        // postcss-loader, css预处理，需单独在postcss.config.js配置plugins
+        // postcss-loader, css预处理，配置文件postcss.config.js
         // less-loader, less转为css
         test: /\.(le|c)ss$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
