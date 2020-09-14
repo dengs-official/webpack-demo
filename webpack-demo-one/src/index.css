@@ -1,0 +1,6 @@
+@import './styles/reset.css';
+
+html,
+body {
+  background-color: lightpink;
+}
