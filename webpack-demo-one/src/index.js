@@ -14,7 +14,7 @@ class Root {
     this.title = title;
     this.value = value;
   }
-  version = '1.0.0'
+  // version = '1.0.0'
 }
 
 const root = new Root('root', 'root');

@@ -5,6 +5,7 @@ const OptimizeJsPlugin = require('terser-webpack-plugin'); // 可以转es6语法
 const OptimizeCssPlugin = require('optimize-css-assets-webpack-plugin');
 
 
+// eslint-disable-next-line no-undef
 const r = (p) => path.resolve(__dirname, p);
 
 module.exports = {
@@ -36,13 +37,19 @@ module.exports = {
   module: {
     rules: [
       {
+        // 处理脚本格式, .js, .jsx
+        test: /\.js(|x)$/,
+        use: {
+          loader: 'eslint-loader',
+        },
+        enforce: 'pre',
+      },
+      {
         // 处理脚本, .js, .jsx
         test: /\.js(|x)$/,
-        use: [
-          {
-            loader: 'babel-loader', // 编译es6等更高语法，配置文件babale.config.js
-          }
-        ]
+        use: [{
+          loader: 'babel-loader', // 编译es6等更高语法，配置文件babale.config.js
+        }]
       },
       {
         // 处理样式 .css, .less
